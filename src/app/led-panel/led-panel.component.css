@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "Segment7Standard";
+    src: url("../../assets/fonts/Segment7Standard.woff") format("woff")
+  }
+/* LEDs */
+
+
+
+
+.green {
+    background-image: -webkit-linear-gradient(top, #13fB04 0%, #58e343 50%, #ADED99 100%);
+}
+
+.blue {
+    background-image: -webkit-linear-gradient(top, #0026FF 0%, #447EE2 50%, #98A6EA 100%);
+}
+
+.purple {
+    background-image: -webkit-linear-gradient(top, #9900FF 0%, #A176E6 50%, #BE98EA 100%);
+}
+
+.yellow {
+    background-image: -webkit-linear-gradient(top, #F5F904 0%, #DDE045 50%, #E5EA98 100%);
+}
+
+.orange {
+    background-image: -webkit-linear-gradient(top, #F98704 0%, #E08C47 50%, #F8C685 100%);
+}
+
+.red {
+    background-image: -webkit-linear-gradient(top, #fb1304 0%, #e35843 50%, #edad99 100%);
+}
+
+.gray {
+    background-image: -webkit-linear-gradient(top, #404040 0%, #808080 50%, #D3D3D3 100%);
+}
+
+
+
+.bigLed {
+    border-radius: 5px;
+    width: 10px;
+    height: 10px;
+    box-shadow: 0px 0px 3px black;
+    margin: 3px;
+    zoom: 2;
+    float: left;
+}
+
+.led:after {
+    display: block;
+    content: '';
+    margin-left: 1px;
+    margin-right: 1px;
+    width: 3px;
+    height: 2px;
+    border-top-right-radius: 4px 3px;
+    background-image: -webkit-linear-gradient(top, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0.2) 100%);
+    font-family: verdana;
+}
+
+.ledTable {
+    background-color: white;
+    border: 1px solid #D9D9D9;
+    min-width:50px;
+    height: 30px;
+    text-align:center;
+    padding:4px;
+    margin:3px;
+    display: inline-flex;
+    position: relative;    
+    line-height: 30px;
+    margin: 0 auto;        
+    margin-top :10px;
+    margin-bottom :10px;
+}
+
+.led {
+    border-radius: 3px;
+    width: 5px;
+    height: 5px;
+    box-shadow: 0px 0px 3px black;
+    margin: 1px;
+    zoom: 3;
+    margin-top: 3px;
+}
+
+.led_rect {
+    border-radius: 0px;
+    box-shadow: 1px 1px 1px #303030;
+}
+
+.screen {
+    background-color: #000;
+    color: #910909;
+    font-family: 'Segment7Standard';
+    width:auto;
+    height: 25px;
+    margin: 0 auto;
+    font-size: 22pt;    
+    margin-top: 0px;
+    margin-right: 0px;
+    float:right;
+    padding-top: 4px;
+    padding-bottom: 1px;
+}
+
+.caption {
+    padding:0;
+    position:absolute;
+    top:-5px;
+    left:2px;
+    margin:0;
+    font-size: 8pt;
+    margin-bottom: 3px;
+    background-color: white;
+    height: 10px;
+    line-height: 10px;   
+    border: 1px solid gray;
+    padding-left: 2px;
+    padding-right: 2px;
+    color: black;
+}
+
+.cw-text {
+    font-size: 4pt;
+    color: black;
+    margin-left: -2px;
+    font-weight: bold;
+    padding-left:1px;
+    padding-right: 1px;
+}

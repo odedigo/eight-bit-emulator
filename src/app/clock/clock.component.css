@@ -1,0 +1,42 @@
+.vspace {
+    margin-top:5px;
+}
+
+/*********** Glow **************/
+
+@-webkit-keyframes glowing {
+    0% { background-color: #b5daf1; -webkit-box-shadow: 0 0 3px #b5daf1; }
+    50% { background-color: #68b2e0; -webkit-box-shadow: 0 0 40px #68b2e0; }
+    100% { background-color: #2399E5; -webkit-box-shadow: 0 0 3px #2399E5; }
+  }
+  
+  @-moz-keyframes glowing {
+    0% { background-color: #b5daf1; -moz-box-shadow: 0 0 3px #b5daf1; }
+    50% { background-color: #68b2e0; -moz-box-shadow: 0 0 40px #68b2e0; }
+    100% { background-color: #2399E5; -moz-box-shadow: 0 0 3px #2399E5; }
+  }
+  
+  @-o-keyframes glowing {
+    0% { background-color: #b5daf1; box-shadow: 0 0 3px #b5daf1; }
+    50% { background-color: #68b2e0; box-shadow: 0 0 40px #68b2e0; }
+    100% { background-color: #2399E5; box-shadow: 0 0 3px #2399E5; }
+  }
+  
+  @keyframes glowing {
+    0% { background-color: #b5daf1; box-shadow: 0 0 3px #b5daf1; }
+    50% { background-color: #68b2e0; box-shadow: 0 0 40px #68b2e0; }
+    100% { background-color: #2399E5; box-shadow: 0 0 3px #2399E5; }
+  }
+
+.glow  .ui-state-active  {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}
+.glow  {
+  -webkit-animation: glowing 1500ms infinite;
+  -moz-animation: glowing 1500ms infinite;
+  -o-animation: glowing 1500ms infinite;
+  animation: glowing 1500ms infinite;
+}

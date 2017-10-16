@@ -1,0 +1,20 @@
+<p class="title">{{'COMP.BUS_AREA.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+<div class='grad'>
+<div id="co_arr" class='arrow right' style="position:absolute; top:80px; left: 2px;" [ngStyle]="{'display': show_co}"></div>        
+<div id="mi_arr" class='arrow left' style="position:absolute; top:190px; left: 2px; border-color:green;" [ngStyle]="{'display': show_mi}"></div>        
+<div id="ro_arr" class='arrow right' style="position:absolute; top:275px; left: 2px;" [ngStyle]="{'display': show_ro}"></div>        
+<div id="ri_arr" class='arrow left' style="position:absolute; top:300px; left: 2px;border-color:green;" [ngStyle]="{'display': show_ri}"></div>        
+<div id="io_arr" class='arrow right' style="position:absolute; top:390px; left: 2px;" [ngStyle]="{'display': show_io}"></div>        
+<div id="ii_arr" class='arrow left' style="position:absolute; top:415px; left: 2px;border-color:green;" [ngStyle]="{'display': show_ii}"></div>        
+<div id="ao_arr" class='arrow left' style="position:absolute; top:70px; right: 2px;" [ngStyle]="{'display': show_ao}"></div>        
+<div id="ai_arr" class='arrow right' style="position:absolute; top:95px; right: 2px;border-color:green;" [ngStyle]="{'display': show_ai}"></div>        
+<div id="eo_arr" class='arrow left' style="position:absolute; top:190px; right: 2px;" [ngStyle]="{'display': show_eo}"></div>        
+<div id="bi_arr" class='arrow right' style="position:absolute; top:310px; right: 2px;border-color:green;" [ngStyle]="{'display': show_bi}"></div>        
+<div id="oi_arr" class='arrow right' style="position:absolute; top:430px; right: 2px;border-color:green;" [ngStyle]="{'display': show_oi}"></div>        
+</div>
+<p-dialog #inf header="{{'COMP.BUS_AREA.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+  <div class='info' [innerHTML]="'COMP.BUS_AREA.INFO.DESC' | translate"></div>
+  <p-footer>
+    <button type="button" pButton icon="fa-close" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+  </p-footer>
+</p-dialog>

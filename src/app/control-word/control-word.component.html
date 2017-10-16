@@ -1,0 +1,9 @@
+<p class="title">{{'COMP.CW.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+<app-led-panel #lpanel [leds]="leds16" caption="" showCaption="none" showScreen="none" marginLeft="8px" showCW="flex"></app-led-panel>
+
+<p-dialog #inf header="{{'COMP.CW.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+  <div class='info' [innerHTML]="'COMP.CW.INFO.DESC' | translate"></div>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+  </p-footer>
+</p-dialog>

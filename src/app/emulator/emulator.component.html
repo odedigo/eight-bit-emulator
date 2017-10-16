@@ -1,0 +1,81 @@
+<!--Emulator -->
+<div class="econtainer ps-top-to-bottom en">
+  <div class="emulator">
+        <!-- BUS VALUE -->    
+    <div class="ebox">   
+      <app-bus-value></app-bus-value>   
+    </div>
+
+    <div style="display:flex;">
+
+      <!-- left side -->
+      <div style="width:50%">
+
+        <!-- PROGRAM COUNTER -->    
+        <div class="ebox">
+            <app-program-counter></app-program-counter>
+        </div>
+
+        <!-- MAR AND RAM -->
+        <div class="ebox">
+          <app-mar-ram></app-mar-ram>
+        </div>
+
+        <!-- INSTRUCTION REGISTER -->
+        <div class="ebox">
+          <app-instruction-register></app-instruction-register>
+        </div>
+
+        <!-- CONTROL LOGIC -->
+        <div class="ebox">
+          <app-logic></app-logic>
+        </div>
+
+      </div> <!-- end left 50% -->
+
+      <!-- BUS AREA -->
+      <div class="bus" style="position:relative">
+        <app-bus></app-bus>
+      </div>
+
+      <!-- right side -->
+      <div style="width:50%">
+        <!-- REGISTER A -->
+        <div class="ebox">
+          <app-register-a></app-register-a>
+        </div>
+
+        <!-- ALU -->
+        <div class="ebox">
+            <app-alu></app-alu>
+        </div>
+
+        <!-- REGISTER B -->
+        <div class="ebox">
+            <app-register-b></app-register-b>
+        </div>
+
+        <!-- OUTPUT -->
+        <div class="ebox">
+          <app-output-register></app-output-register>
+        </div>
+
+        <!-- CLOCK -->
+        <div class="ebox">
+          <app-clock></app-clock>
+        </div>
+      </div> <!-- end right 50% -->
+    </div> <!-- end main area -->
+
+      <!-- CONTROL WORD -->
+      <div class="ebox">
+        <app-control-word></app-control-word>
+      </div>
+    </div>  <!-- End emulator -->
+
+    <div class="ram_contents" >
+        <app-ram-display></app-ram-display>
+    </div>        
+        
+
+  </div>  <!-- End container -->

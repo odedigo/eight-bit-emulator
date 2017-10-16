@@ -1,0 +1,210 @@
+{
+  "META" :{
+    "DESC" : "אמולטור למחשב 8 ביט שמדגים איך מחשב עובד. מיועד למורים, תלמידים וסטודנטים.",
+    "KEYWORDS" : "8 bit, emulator, sap-1, computer, oded, cnaan, oded cnaan, assembler, code, program, commands, architecture, simulator, 8 ביט, מחשב, אמולטור, סימולטור, עודד, כנען, עודד כנען, אסמבלר, קוד, פקודות, ארכיטקטורה, מיקרו-פקודות",
+    "ROBOT": "Index, Follow",
+    "TITLE" : "אמולטור מחשב 8 ביט | Free Your Mind | עודד כנען"
+  },
+  "COMP": {
+      "ALU": {
+        "TITLE": "ALU - יחידת החישוב",
+        "INFO": {
+          "HEADER": "The ALU - יחידת החישוב",
+          "DESC": ["<p>An arithmetic logic unit (ALU) is a combinational digital electronic circuit that performs arithmetic and bitwise operations on integer binary numbers. This is in contrast to a floating-point unit (FPU), which operates on floating point numbers. An ALU is a fundamental building block of many types of computing circuits, including the central processing unit (CPU) of computers, FPUs, and graphics processing units (GPUs). A single CPU, FPU or GPU may contain multiple ALUs.</p><p><b>ALU operations:</b> In this emulator, the operands are registers A and B which are constantly fed into the ALU with a control signal SU which indicates whether to add or substract them (A+B or A-B).</p><p><b>Carry:</b> An addition or subtraction may cause an overflow which will turn on the carry flag. This flag is used to perform conditional jumps (Jump Less, Jump Greater)</p><p><b>Control Lines:</b> The ALU has 2 control lines: EO to output its value to the bus and SU indicating subtraction (or addition)</p>"      
+          ]
+        },
+        "PANEL_DESC": "תוצאה"
+      },
+      "BUSVAL": {
+        "TITLE": "The Bus",
+        "INFO":{
+          "HEADER": "Bus Value",
+          "DESC": ["The Bus is the glue that connects between the different components and allows them to communicate and transfer data, either commands or data values. Imagine how complicated would it be if each component had to directly connect to all other components...The different components can read values and/or write to the bus as long as only one component write a value at any given micro-command."]
+        },
+        "PANEL_DESC": "ערך הבס"
+      },
+      "BUS_AREA": {
+        "TITLE" : "Bus",
+        "INFO": {
+          "HEADER": "Bus",
+          "DESC": ["The Bus is the glue that connects between the different components and allows them to communicate and transfer data, either commands or data values. Imagine how complicated would it be if each component had to directly connect to all other components...The different components can read values and/or write to the bus as long as only one component write a value at any given micro-command. <p>The Bus area displays arrows to indicate which component is outputing data or reading data from the Bus. Green arrow (read) indicate that the operation will occur in the next clock cycle.</p>"]            
+        }
+      },
+      "LOGIC": {
+        "TITLE": "Control Logic - יחידת הבקרה",
+        "INFO":{
+          "HEADER": "יחידת הבקרה",
+          "DESC": ["<p>The logic unit is responsible for generating the control word, turning on and off control lines that activate other CPU units</p><p>The logic          unit advances the step counter which acts as a counter for the CPU's location within the micro-commands. It also acts as a translation table,             converting the instruction command and the step into the proper control lines.</p>"
+                ]
+        },
+        "PANEL_DESC": "מיקרו צעד"
+      },
+      "CLOCK": {
+        "TITLE": "CPU Clock - שעון המחשב",
+        "INFO":{
+          "HEADER": "שעון המחשב",
+          "DESC": ["<p>The Clock is responsible for timing CPU execution. It sends a pulse which has a rising and a falling edge, that components listen to. Upon receiving the clock event, components execute based on whatever control lines are active at that time.</p><p>Note that some operations (i.e. Output to the bus) do not require a clock event however every control line change requires a clock pulse.</p><p><b>Clock modes:</b> You can choose between an automatic clock (you can set the pace using the dropdown) or a manual one, where you click to generate a clock event</p><p><b>Reset:</b> Use the reset button to bring the emulator to it initial state (to run the program from the first command)</p>"]
+        },
+        "MANUAL_BUTTON": "פולס בודד",
+        "RESET_BUTTON" : "איתחול",
+        "AUTO_CLOCK_OPTION"   : "אוטומטי",
+        "MANUAL_CLOCK_OPTION" : "ידני",
+        "AUTO_CLOCK_START"   : "לחצו לריצה",
+        "AUTO_CLOCK_PAUSE"   : "לחצו לעצירה",
+        "PACES" : {
+            "SLOWER" : "איטי מאד|5000",
+            "SLOW" : "איטי|3000",
+            "NORMAL" : "רגיל|1000",
+            "FAST": "מהיר|500",
+            "FASTER" : "מהיר מאד|20"
+        }
+    },
+      "CW": {
+        "TITLE": "Control Word - מילת הבקרה",
+        "INFO":{
+          "HEADER": "Control Word - מילת הבקרה",
+          "DESC": [""]
+        },
+        "PANEL_DESC": "The Control Lines tell each one of the components whether to read/write to the but, advance counters, perform addition or subtraction etc. The Control Word displays the status of all the control line in a cenrtal place, allowing easy tracking."
+      },
+      "INST": {
+        "TITLE": "Instruction Register - רגיסטר ההוראות",
+        "INFO":{
+          "HEADER": "Instruction Register - רגיסטר ההוראות",
+          "DESC": ["<p>An instruction register (IR) is the part of a CPU's control unit that holds the instruction currently being executed or decoded. In simple processors each instruction to be executed is loaded into the instruction register which holds it while it is decoded, prepared and ultimately executed, which can take several steps</p><p><b>The colors:</b> the register has 2 colors indicating its MSB (4 left bits) and LSB (4 right bits). The blue (left) bits hold the assembly command while the green (right) bits hold the command's operand.</p><p><b>Output bits:</b> Unlike other registers, when the IO (Instruction Out) control line is active, the instruction register outputs only the LSB bits that represent the operand</p>"]
+        },
+        "PANEL_DESC": "אופרנד - פקודה"
+      },
+      "MAR_RAM": {
+        "TITLE": "MAR & RAM - זכרון ורגיסטר הכתובת",
+        "INFO":{
+          "HEADER": "Memory Address Register & RAM - זכרון ורגיסטר הכתובת",
+          "DESC": ["<p>This unit includes 2 components<br/>",
+            "<b>Memory Address Register:</b> holds the address to which we access in the RAM<br/><b>RAM:</b> the memory, in our case, a 16 bytes memory</p><p>Whenever the CPU needs to access the RAM, it first loads the address into the MAR and then instructs the RAM to output its value (at that address).</p>"
+          ]
+        },
+        "PANEL_MAR_DESC": "כתובת הזכרון",
+        "PANEL_RAM_DESC": "ערך הזכרון"
+      },
+      "PC": {
+        "TITLE": "Program Counter - מונה התכנית",
+        "INFO":{
+          "HEADER": "Program Counter - מונה התכנית",
+          "DESC": ["<p>The Program Counter is a...counter. Its job is to hold the address of the next command that needs to be executed and therfore, after each fetch cycle, we advance it by one.</p><p>The Program Counter has 4 control lines. CE to advance the counter, CO to output the counter's value to the bus, JMP to load the bus value (which means that the next command will have that address), and JC which is the same as JMP but only if the Carry flag is on.</p>"]
+        },
+        "PANEL_DESC": "הפקודה הבאה"
+      },
+      "OUT": {
+        "TITLE": "Output Register - רגיסטר תוצאה",
+        "INFO":{
+          "HEADER": "Output Register - רגיסטר התוצאה",
+          "DESC": ["<p>The output regster is a buffer used to display computational results.</p><p>The output register has a single control line to read OI from the bus on the next clock pulse</p>"]
+        },
+        "PANEL_DESC": "תצוגה"
+      },
+      "REGA": {
+        "TITLE": "Register A רגיסטר",
+        "INFO":{
+          "HEADER": "Register A רגיסטר",
+          "DESC": ["<p>Registers are memory buffers that can store a value and output their contents to the bus. In this computer we have several registers used for different tasks. In this section, we'll discuss registers A and B which are similar but still different.</p><p>Register A (AKA Accumalator) stores intermediate results during a computer run. It has 2 control lines to read AI from the bus and to write AO to the bus. The value in register A is constantly fed into the ALU. When AO is on, the contents of the register are immediately written into the bus, however, when AI is on, the bus value will be read into the register only on thenext clock pulse.</p>"]
+        },
+        "PANEL_DESC": "A ערך"
+      },
+      "REGB": {
+        "TITLE": "Register B רגיסטר",
+        "INFO":{
+          "HEADER": "Register B רגיסטר",
+          "DESC": ["<p>Registers are memory buffers that can store a value and output their contents to the bus. In this computer we have several registers used for different tasks. In this section, we'll discuss registers A and B which are similar but still different.</p><p>Register B is similar to A but is used differently. It can read the bus value BI but it cannot write to the bus. Register B's value is also fed constantly into</p><p>Since subtraction is done as A-B (A minus B), we need to store the second operand in register B.</p>"]
+        },
+        "PANEL_DESC": "B ערך"
+      },
+      "RAM": {
+        "TITLE": "RAM Contents - תוכן הזכרון",
+        "INFO":{
+          "HEADER": "RAM Contents - תוכן הזכרון",
+          "DESC": ["<p>This component is actually 2 components that are strongly related. The first (Memory Address Register) is a 4 bits buffer (remembr that our memory addresses are between 0 and 15?) that holds the RAM address that we want to access. The Memory Address Register has a single control line MI to load the 4 LSB bits (less significant bit - the right most bit) from the bus.</p><p>The second component is the memory itself, which holds 16 bytes of data that is used to store the program sa well as optional data. The RAM has 2 control lines, RI to load a value from the bus and RO to write itscontents to the bus.</p>"]
+        },
+        "CUR_CMD": "הפקודה הנוכחית",
+        "BREAKPOINT": "Breakpoint",
+        "BREAKPOINT_TEXT": "Breakpoint בכתובת: ",
+        "BREAKPOINT_ADDR": "כתובת: ",
+        "NO_BREAKPOINT": "Breakpoint ללא",
+        "EDIT"      : "הטענת תוכניות",
+        "EDITOR"    : "עורך זכרון",
+        "EDITOR_TEXT": "אתם יכולים לערוך את תאי הזכרון לערכים בין 0 ל 255. אפשר להשתמש רק בתוים 0 ו 1.",
+        "TABLE_ADDR": "Addr",
+        "TABLE_HEX" : "Hex",
+        "TABLE_BIN" : "Bin",
+        "TABLE_CMD" : "Cmd",
+        "STEP"      : "צעד",
+        "MICROCMD" : "פקודות המחשב",
+        "MICROCMD_HEADER" : "טבלת מיקרו פקודות",
+        "MICROCMD_TEXT": "הטבלה הזאת מציגה את כל פקודות המחשב והשבירה שלהן למיקרו פקודות"
+      }
+  },
+  "UI": {
+      "CLOSE": "סגור",
+      "INFO": "מידע",
+      "CLOCK": "שעון",
+      "RESET": "אתחל",
+      "CANCEL" : "ביטול",
+      "SAVE"  : "שמור"
+  },
+  "PROGRAMS" : {
+    "TITLE" : "תוכניות מוכנות",
+    "SELECTOR" : "בחרו תוכנית",
+    "NUM" : "3",
+    "PROG1" : {
+      "TITLE" : "חיבור מספרים",
+      "DESC": "Adds to numbers from memory",
+      "RAM" : "30,47,224,240,0,0,0,0,0,0,0,0,0,0,28,14"
+    },
+    "PROG2" : {
+      "TITLE": "מונה",
+      "DESC": "Counts from 0 in jumps of 3",
+      "RAM" : "83,79,80,47,224,99,0,0,0,0,0,0,0,0,0,0"
+    },
+    "PROG3" : {
+      "TITLE": "סדרת פיבונצ'י",
+      "DESC": "Calculate first Finonacci numbers",
+      "RAM" : "81,78,80,224,46,79,30,77,31,78,29,128,99,0,0,0"
+    },
+    "PROG4" : {
+      "TITLE": "קפיצה מותנה",
+      "DESC": "Test conditional jump",
+      "RAM" : "95,47,132,96,240,0,0,0,0,0,0,0,0,0,0,255"
+    }
+  },
+  "CMDS" :{
+    "DESC": {
+      "NOP": "No-Operations - הפקודה הזאת לא עושה כלום.",
+      "LDA": "LDA [Address]: הטענת ערך תא הזכרון שבכתובת הנתונה לתוך רסיסטר א",
+      "ADD": "ADD [Address]: כתיבת הערך לרגיסטר ב, הוספה לרגיסטר א ושמירת התוצאה ברגיסטר א",
+      "SUB": "SUB [Address]: כתיבת הערך לרגיסטר ב, חיסור מרגיסטר א ושמירת התוצאה ברגיסטר א",
+      "STA": "STA [Address]: שמירת ערך רגיסטר א בזכרון בכתובת הנתונה",
+      "LDIA": "LDIA [Value]: כתיבת ערך נתון לרגיסטר א",
+      "JMP": "[JMP]: קפיצה לכתובת הנתונה",
+      "LDIB": "LDIB [Value]: כתיבת ערך נתון לרגיסטר ב",
+      "JC": "JC [Address]: קפיצה לכתובת הנתונה אם דגל הקרי דולק",
+      "ATBI": "ATBI [Value]: העברת הערך מרגיסטר א לב', הטענת הערך הנתון לרגיסטר א'. בשימוש לפני JG Move value from A to B and put givn Value in A. Call before JG",
+      "JG": "JG [Address]: קפיצה אם גדול. יש לקרוא קודם ל ATBI",
+      "JL": "JL [Address]: קפיצה אם קטן. יש לקרוא קודם ל LDBI",
+      "OUT": "OUT: הצגת ערך רגיסטר א ברגיסטר התוצאה",
+      "HLT": "HLT: עצירת התוכנית",
+      "DEFAULT": "NA"
+    }
+  },
+  "CREDIT" : {
+    "NAME" : "עודד כנען",
+    "EMAIL" : "oded.8bit@gmail.com",
+    "PREFIX" : "פותח ע'י",
+    "SUFFIX" : "",
+    "GIT_URL" : "",
+    "GIT_TEXT": ""
+  },
+  "TRANSLATE": {
+    "TRANSLATE_ME" : "תרגמו אותי",
+    "HEADER": "תרגום האמולטור",
+    "MSG": "<p>רוצים לעזור לתרגם את האמולטור לשפות נוספות?</p><p>הורידו את <a href='/assets/i18n/en.json' target='_blank'>קובץ התרגום</a> ושילחו את הקובץ המתורגם לכתובת <a href='mailto:oded.8bit@gmail.com'>oded.8bit@gmail.com</a>.</p><p>תודה רבה</p>"
+  }
+}

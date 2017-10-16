@@ -1,0 +1,66 @@
+/*************** Arrows *****************/
+
+.arrow {
+    display : inline-block;
+    font-size: 10px; /* adjust size */
+    line-height: 1em; /* adjust vertical positioning */
+    border: 5px solid #000000;
+    border-left: transparent;
+    border-bottom: transparent;
+    width: 1em; /* use font-size to change overall size */
+    height: 1em; /* use font-size to change overall size */
+  }
+  
+  .arrow:before {
+    content: "\00a0"; /* needed to hook line-height to "something" */
+  }
+  
+  .arrow.left {
+    margin-left: 0.5em;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
+  
+  .arrow.right {
+    margin-right: 0.5em;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .arrow.top {
+    line-height: 0.5em; /* use this to adjust vertical positioning */
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .arrow.bottom {
+    line-height: 2em;
+    /* use this to adjust vertical positioning */
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+  .grad {
+    background: #ffffff;
+    background: -moz-linear-gradient(left, #ffffff 32%, #ffffff 32%, #ffffff 36%, #ffffff 41%, #333333 43%, #333333 54%, #ffffff 56%);
+    background: -webkit-linear-gradient(left, #ffffff 32%,#ffffff 32%,#ffffff 36%,#ffffff 41%,#333333 43%,#333333 54%,#ffffff 56%);
+    background: linear-gradient(to right, #ffffff 32%,#ffffff 32%,#ffffff 36%,#ffffff 41%,#333333 43%,#333333 54%,#ffffff 56%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ffffff',GradientType=1 );
+    height:95%;
+}
+  

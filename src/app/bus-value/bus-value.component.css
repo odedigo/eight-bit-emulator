@@ -1,0 +1,10 @@
+.credit {
+    font-size: 8pt;
+    position: absolute;
+    top: 0;
+    left: 2px;
+    text-align: left;
+}
+.credit a{
+    color: black;
+}

@@ -1,0 +1,210 @@
+{
+    "META" :{
+      "DESC" : "An 8-bit emulator for educators, students and curious people that want to understand how computers work",
+      "KEYWORDS" : "8 bit, emulator, sap-1, computer, oded, cnaan, oded cnaan, assembler, code, program, commands, architecture, simulator",
+      "ROBOT": "Index, Follow",
+      "TITLE" : "Eight Bits Computer Emulator | Free Your Mind | Oded Cnaan"
+    },
+    "COMP": {
+        "ALU": {
+          "TITLE": "ALU",
+          "INFO": {
+            "HEADER": "The ALU",
+            "DESC": ["<p>An arithmetic logic unit (ALU) is a combinational digital electronic circuit that performs arithmetic and bitwise operations on integer binary numbers. This is in contrast to a floating-point unit (FPU), which operates on floating point numbers. An ALU is a fundamental building block of many types of computing circuits, including the central processing unit (CPU) of computers, FPUs, and graphics processing units (GPUs). A single CPU, FPU or GPU may contain multiple ALUs.</p><p><b>ALU operations:</b> In this emulator, the operands are registers A and B which are constantly fed into the ALU with a control signal SU which indicates whether to add or substract them (A+B or A-B).</p><p><b>Carry:</b> An addition or subtraction may cause an overflow which will turn on the carry flag. This flag is used to perform conditional jumps (Jump Less, Jump Greater)</p><p><b>Control Lines:</b> The ALU has 2 control lines: EO to output its value to the bus and SU indicating subtraction (or addition)</p>"      
+            ]
+          },
+          "PANEL_DESC": "Result"
+        },
+        "BUSVAL": {
+          "TITLE": "Bus Value",
+          "INFO":{
+            "HEADER": "Bus Value",
+            "DESC": ["The Bus is the glue that connects between the different components and allows them to communicate and transfer data, either commands or data values. Imagine how complicated would it be if each component had to directly connect to all other components...The different components can read values and/or write to the bus as long as only one component write a value at any given micro-command."]
+          },
+          "PANEL_DESC": "Bus Value"
+        },
+        "BUS_AREA": {
+          "TITLE" : "Bus",
+          "INFO": {
+            "HEADER": "The Bus",
+            "DESC": ["The Bus is the glue that connects between the different components and allows them to communicate and transfer data, either commands or data values. Imagine how complicated would it be if each component had to directly connect to all other components...The different components can read values and/or write to the bus as long as only one component write a value at any given micro-command. <p>The Bus area displays arrows to indicate which component is outputing data or reading data from the Bus. Green arrow (read) indicate that the operation will occur in the next clock cycle.</p>"]            
+          }
+        },
+        "LOGIC": {
+          "TITLE": "Logic Control",
+          "INFO":{
+            "HEADER": "Logic",
+            "DESC": ["<p>The logic unit is responsible for generating the control word, turning on and off control lines that activate other CPU units</p><p>The logic          unit advances the step counter which acts as a counter for the CPU's location within the micro-commands. It also acts as a translation table,             converting the instruction command and the step into the proper control lines.</p>"
+                  ]
+          },
+          "PANEL_DESC": "Micro Step"
+        },
+        "CLOCK": {
+          "TITLE": "CPU Clock",
+          "INFO":{
+            "HEADER": "CPU CLOCK",
+            "DESC": ["<p>The Clock is responsible for timing CPU execution. It sends a pulse which has a rising and a falling edge, that components listen to. Upon receiving the clock event, components execute based on whatever control lines are active at that time.</p><p>Note that some operations (i.e. Output to the bus) do not require a clock event however every control line change requires a clock pulse.</p><p><b>Clock modes:</b> You can choose between an automatic clock (you can set the pace using the dropdown) or a manual one, where you click to generate a clock event</p><p><b>Reset:</b> Use the reset button to bring the emulator to it initial state (to run the program from the first command)</p>"]
+          },
+          "MANUAL_BUTTON": "Single Pulse",
+          "RESET_BUTTON" : "Reset",
+          "AUTO_CLOCK_OPTION"   : "Auto Clock",
+          "MANUAL_CLOCK_OPTION" : "Manual Clock",
+          "AUTO_CLOCK_START"   : "Click to Run",
+          "AUTO_CLOCK_PAUSE"   : "Click to Pause",
+          "PACES" : {
+            "SLOWER" : "Slower|5000",
+            "SLOW" : "Slow|3000",
+            "NORMAL" : "Normal|1000",
+            "FAST": "Fast|500",
+            "FASTER" : "Faster|20"
+          }
+        },
+        "CW": {
+          "TITLE": "Control Word",
+          "INFO":{
+            "HEADER": "Control Word",
+            "DESC": [""]
+          },
+          "PANEL_DESC": "The Control Lines tell each one of the components whether to read/write to the but, advance counters, perform addition or subtraction etc. The Control Word displays the status of all the control line in a cenrtal place, allowing easy tracking."
+        },
+        "INST": {
+          "TITLE": "Instruction Register",
+          "INFO":{
+            "HEADER": "Instruction Register",
+            "DESC": ["<p>An instruction register (IR) is the part of a CPU's control unit that holds the instruction currently being executed or decoded. In simple processors each instruction to be executed is loaded into the instruction register which holds it while it is decoded, prepared and ultimately executed, which can take several steps</p><p><b>The colors:</b> the register has 2 colors indicating its MSB (4 left bits) and LSB (4 right bits). The blue (left) bits hold the assembly command while the green (right) bits hold the command's operand.</p><p><b>Output bits:</b> Unlike other registers, when the IO (Instruction Out) control line is active, the instruction register outputs only the LSB bits that represent the operand</p>"]
+          },
+          "PANEL_DESC": "Command - Operand"
+        },
+        "MAR_RAM": {
+          "TITLE": "MAR & RAM",
+          "INFO":{
+            "HEADER": "Memory Address Register & RAM",
+            "DESC": ["<p>This unit includes 2 components<br/>",
+              "<b>Memory Address Register:</b> holds the address to which we access in the RAM<br/><b>RAM:</b> the memory, in our case, a 16 bytes memory</p><p>Whenever the CPU needs to access the RAM, it first loads the address into the MAR and then instructs the RAM to output its value (at that address).</p>"
+            ]
+          },
+          "PANEL_MAR_DESC": "RAM Address",
+          "PANEL_RAM_DESC": "RAM Value"
+        },
+        "PC": {
+          "TITLE": "Program Counter",
+          "INFO":{
+            "HEADER": "Program Counter",
+            "DESC": ["<p>The Program Counter is a...counter. Its job is to hold the address of the next command that needs to be executed and therfore, after each fetch cycle, we advance it by one.</p><p>The Program Counter has 4 control lines. CE to advance the counter, CO to output the counter's value to the bus, JMP to load the bus value (which means that the next command will have that address), and JC which is the same as JMP but only if the Carry flag is on.</p>"]
+          },
+          "PANEL_DESC": "Next Instruction"
+        },
+        "OUT": {
+          "TITLE": "Output Register",
+          "INFO":{
+            "HEADER": "Output Register",
+            "DESC": ["<p>The output regster is a buffer used to display computational results.</p><p>The output register has a single control line to read OI from the bus on the next clock pulse</p>"]
+          },
+          "PANEL_DESC": "Output Value"
+        },
+        "REGA": {
+          "TITLE": "Register A",
+          "INFO":{
+            "HEADER": "Register A",
+            "DESC": ["<p>Registers are memory buffers that can store a value and output their contents to the bus. In this computer we have several registers used for different tasks. In this section, we'll discuss registers A and B which are similar but still different.</p><p>Register A (AKA Accumalator) stores intermediate results during a computer run. It has 2 control lines to read AI from the bus and to write AO to the bus. The value in register A is constantly fed into the ALU. When AO is on, the contents of the register are immediately written into the bus, however, when AI is on, the bus value will be read into the register only on thenext clock pulse.</p>"]
+          },
+          "PANEL_DESC": "Value A"
+        },
+        "REGB": {
+          "TITLE": "Register B",
+          "INFO":{
+            "HEADER": "Register B",
+            "DESC": ["<p>Registers are memory buffers that can store a value and output their contents to the bus. In this computer we have several registers used for different tasks. In this section, we'll discuss registers A and B which are similar but still different.</p><p>Register B is similar to A but is used differently. It can read the bus value BI but it cannot write to the bus. Register B's value is also fed constantly into</p><p>Since subtraction is done as A-B (A minus B), we need to store the second operand in register B.</p>"]
+          },
+          "PANEL_DESC": "Value B"
+        },
+        "RAM": {
+          "TITLE": "RAM Contents",
+          "INFO":{
+            "HEADER": "RAM Contents",
+            "DESC": ["<p>This component is actually 2 components that are strongly related. The first (Memory Address Register) is a 4 bits buffer (remembr that our memory addresses are between 0 and 15?) that holds the RAM address that we want to access. The Memory Address Register has a single control line MI to load the 4 LSB bits (less significant bit - the right most bit) from the bus.</p><p>The second component is the memory itself, which holds 16 bytes of data that is used to store the program sa well as optional data. The RAM has 2 control lines, RI to load a value from the bus and RO to write itscontents to the bus.</p>"]
+          },
+          "CUR_CMD": "Current Command",
+          "BREAKPOINT": "Breakpoint",
+          "BREAKPOINT_TEXT": "Breakpoint set at address: ",
+          "BREAKPOINT_ADDR": "Address: ",
+          "NO_BREAKPOINT": "No Breakpoint",
+          "EDIT"      : "Edit RAM",
+          "EDITOR"    : "RAM Editor",
+          "EDITOR_TEXT": "You can set the RAM values to any value between 0 and 255. Note that only binary 0s and 1s are allowed",
+          "TABLE_ADDR": "Addr",
+          "TABLE_HEX" : "Hex",
+          "TABLE_BIN" : "Bin",
+          "TABLE_CMD" : "Cmd",
+          "STEP"      : "Step",
+          "MICROCMD" : "CPU Commands",
+          "MICROCMD_HEADER" : "Micro Commands Table",
+          "MICROCMD_TEXT": "This table defineds the CPU assembler commands and breaks them down into their micro-commands"
+        }
+    },
+    "UI": {
+        "CLOSE": "Close",
+        "INFO": "Info",
+        "CLOCK": "Clock",
+        "RESET": "Reset",
+        "CANCEL" : "Cancel",
+        "SAVE"  : "Save"
+    },
+    "PROGRAMS" : {
+      "TITLE" : "Canned Programs",
+      "SELECTOR" : "Select a Program",
+      "NUM" : "3",
+      "PROG1" : {
+        "TITLE" : "Add Numbers",
+        "DESC": "Adds to numbers from memory",
+        "RAM" : "30,47,224,240,0,0,0,0,0,0,0,0,0,0,28,14"
+      },
+      "PROG2" : {
+        "TITLE": "Counter",
+        "DESC": "Counts from 0 in jumps of 3",
+        "RAM" : "83,79,80,47,224,99,0,0,0,0,0,0,0,0,0,0"
+      },
+      "PROG3" : {
+        "TITLE": "Fibonacci",
+        "DESC": "Calculate first Finonacci numbers",
+        "RAM" : "81,78,80,224,46,79,30,77,31,78,29,128,99,0,0,0"
+      },
+      "PROG4" : {
+        "TITLE": "Conditional Jump",
+        "DESC": "Test conditional jump",
+        "RAM" : "95,47,132,96,240,0,0,0,0,0,0,0,0,0,0,255"
+      }
+    },
+    "CMDS" :{
+      "DESC": {
+        "NOP": "No-Operations - this command does nothing.",
+        "LDA": "LDA [Address]: load a value from given memory address to register A",
+        "ADD": "ADD [Address]: write a value from memory to B, add with A and store result in A",
+        "SUB": "SUB [Address]: write a value from memory to B, subtract from A and store result in A",
+        "STA": "STA [Address]: store A value in memory",
+        "LDIA": "LDIA [Value]: write value to register A",
+        "JMP": "[JMP]: Jump to given address",
+        "LDIB": "LDIB [Value]: write value to register B",
+        "JC": "JC [Address]: Jump to address if ALU Carry is 1",
+        "ATBI": "ATBI [Value]: Move value from A to B and put givn Value in A. Call before JG",
+        "JG": "JG [Address]: Jump if greater than to the given address. Must be called after ATBI.",
+        "JL": "JL [Address]: Jump if less than to the given address. Must be called after LDBI.",
+        "OUT": "OUT: Displays A value in Output",
+        "HLT": "HLT: Stops program execution",
+        "DEFAULT": "NA"
+      }
+    },
+    "CREDIT" : {
+      "NAME" : "Oded Cnaan",
+      "EMAIL" : "oded.8bit@gmail.com",
+      "PREFIX" : "Developed by",
+      "SUFFIX" : "",
+      "GIT_URL" : "",
+      "GIT_TEXT": ""
+    },
+    "TRANSLATE": {
+      "TRANSLATE_ME" : "Translate Me...",
+      "HEADER": "Emulator Translations",
+      "MSG": "<p>Would you like to help translate the emmulator's interface to additional languages?</p><p>Download the <a href='/assets/i18n/en.json' target='_blank'>text file</a> and send me the translated one to <a href='mailto:oded.8bit@gmail.com'>oded.8bit@gmail.com</a>.</p><p>Thank you!</p>"
+    }
+  }

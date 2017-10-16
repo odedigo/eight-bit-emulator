@@ -1,0 +1,32 @@
+<p class="title">{{'COMP.CLOCK.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+
+<div class="box-panel">
+  <div class="box-panel-left">
+      <app-control-led #hlt type="HLT" color="red"></app-control-led>
+  </div>
+  <div class="box-panel-right">
+      <p-dropdown [options]="paces" [(ngModel)]="selectClkPace" [style]="{'line-height':'1.3','width':'100px'}" (onChange)="onPaceChange($event)" [disabled]="paceDisabled" ></p-dropdown>
+  </div>
+</div>
+
+<!-- auto pulse -->
+<p-toggleButton [(ngModel)]="isAutoClockPaused" (onChange)="onClockModeChange($event)" onLabel="{{'COMP.CLOCK.AUTO_CLOCK_START' | translate}}" 
+offLabel="{{'COMP.CLOCK.AUTO_CLOCK_PAUSE' | translate}}" [disabled]="autoPulseDisabled" 
+ [ngClass]="animationClass"
+angulartics2On="click" angularticsEvent="Emulator" angularticsCategory="AutoClockButton"
+></p-toggleButton>&nbsp;
+<!-- manual pulse -->
+<button pButton type="button" label="{{'COMP.CLOCK.MANUAL_BUTTON' | translate}}" (click)="onManualClock()" [disabled]="manualPulseDisabled" 
+angulartics2On="click" angularticsEvent="Emulator" angularticsCategory="ManualClockButton" [ngClass]="animationClass"></button>
+<!-- vertical space -->
+<div class="vspace"></div>
+<!-- reset -->
+<button pButton type="button" (click)="onResetClicked()" [disabled]="resetDisabled"  label="{{'COMP.CLOCK.RESET_BUTTON' | translate}}" [ngClass]="resetAnimationClass"></button> 
+
+<!-- info -->
+<p-dialog #inf header="{{'COMP.CLOCK.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+  <div class='info' [innerHTML]="'COMP.CLOCK.INFO.DESC' | translate"></div>
+  <p-footer>
+    <button type="button" pButton icon="fa-close" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+  </p-footer>
+</p-dialog>

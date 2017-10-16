@@ -1,0 +1,18 @@
+<p class="title">{{'COMP.ALU.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+<div class="box-panel">
+    <div class="box-panel-left">
+        <app-control-led #eo type="EO" color="#afa20b"></app-control-led>
+        <app-control-led #su type="SU" color="#afa20b"></app-control-led>
+          </div>
+    <div class="box-panel-right">
+        <app-control-led #carry type="CARRY" color="#afa20b"></app-control-led>
+    </div>
+  </div>
+<app-led-panel [leds]="leds8" caption="{{'COMP.ALU.PANEL_DESC' | translate}}" #alupanel></app-led-panel>
+
+<p-dialog #inf header="{{'COMP.ALU.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+  <div class='info' [innerHTML]="'COMP.ALU.INFO.DESC' | translate"></div>
+  <p-footer>
+    <button type="button" pButton icon="fa-close" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+  </p-footer>
+</p-dialog>

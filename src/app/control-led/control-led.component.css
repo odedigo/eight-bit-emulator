@@ -1,0 +1,11 @@
+.led {    
+    width: auto;
+    height: 15px;
+    color: white;
+    padding: 3px;
+    line-height: 15px;
+    font-weight: bold;
+    font-size: 8pt;
+    margin:1px 5px 1px 0 ;
+    min-width: 16px;
+}

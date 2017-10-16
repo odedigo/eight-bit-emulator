@@ -1,0 +1,141 @@
+.ram-view {
+    text-align: left;
+    font-family: Courier New, Courier, monospace;
+    font-size: 12pt;
+    padding: 3px;
+}
+:host ::ng-deep .address {
+    font-weight: bold;
+    font-variant-caps: all-petite-caps;
+    font-size: 14pt;
+}
+:host ::ng-deep .bin {
+    color: green;
+    margin-left: 15px;
+}
+:host ::ng-deep .hex {
+    color: purple;
+    margin-left: 15px;
+}
+:host ::ng-deep .cmd {
+    color: gray;
+    margin-left: 15px;
+}
+:host ::ng-deep .sml {
+    font-size: 10pt;
+}
+:host ::ng-deep .ram-command {
+    margin-top: 5px;
+    color: gray;
+    margin-left: 5px;    
+    padding: 10px;
+    padding-top: 0px;
+}
+:host ::ng-deep .cmd-name {
+    color: purple;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 12pt;
+}
+:host ::ng-deep .micro-cmd {
+    color: black;
+
+}
+:host ::ng-deep .cmd-desc {
+    color: grey;
+    font-size: 12pt;
+    height: 80px;
+    display: inline-block;
+}
+
+:host ::ng-deep .ramTableWrapper {
+    display: grid;
+    display: -ms-grid;
+    grid-template-columns: 50px 50px 80px 20px auto ;
+    -ms-grid-columns: 50px 50px 80px 20px auto ;
+    -ms-grid-rows: 1fr;    
+    grid-gap: 2px;
+    background-color: white;
+    color: #444;  
+    margin-left: 5px;  
+    margin-right: 5px;
+}
+
+:host ::ng-deep .ramBbox {    
+    color: black;
+    padding: 1px;
+    font-size: 10pt;
+    text-align: center;
+}
+
+:host ::ng-deep .ramBboxAddr {    
+    color: black;
+}
+:host ::ng-deep .ramBboxHex {    
+    color: purple;
+}
+:host ::ng-deep .ramBboxBin {    
+    color: green;
+}
+:host ::ng-deep .ramBboxCmd {    
+    color: blue;
+}
+:host ::ng-deep .ramBboxMark {
+    text-align: left;
+}
+:host ::ng-deep .error {
+    color: red;
+    font-size: 10pt;
+    font-weight: bold;
+}
+:host ::ng-deep .memValue {
+    font-size: 11pt;
+    color: green;
+}
+:host ::ng-deep .curCmd {
+    color: blue;
+}
+:host ::ng-deep .mcTableWrapper {
+    display: grid;
+    grid-template-columns: 50px 50px 80px auto ;
+    grid-gap: 2px;
+    background-color: white;
+    color: #444;  
+    margin-left: 5px;  
+    margin-right: 5px;
+}
+:host ::ng-deep .mcBbox {
+    color: black;
+    padding: 1px;
+    font-size: 10pt;
+    text-align: left;
+    border-top: 1px dashed gray;
+    border-bottom: 1px dashed gray;
+}
+:host ::ng-deep .bp-box {
+    margin-top: 10px;
+    color: gray;
+    margin-left: 5px;    
+    padding: 10px;
+    padding-top: 0px;
+}
+:host ::ng-deep .bp {
+    color: white;
+    background-color: red;
+}
+
+:host ::ng-deep .ui-chkbox-box.ui-state-active, :host ::ng-deep .ui-radiobutton-box.ui-state-active {
+    background-color: red;
+    border-color: red;
+}
+
+.ui-state-disabled, .ui-widget:disabled {
+    opacity: 0.75;
+    color: green;
+}
+.ui-inputtext {
+    color: green;
+}
+:host ::ng-deep .ui-dialog .ui-dialog-content { 
+    height: calc(100% - 60px); 
+}

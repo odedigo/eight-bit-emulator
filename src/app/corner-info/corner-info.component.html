@@ -1,0 +1,12 @@
+<div class='corner-info'><span (click)="showbox=true" class='corner-data'>{{'TRANSLATE.TRANSLATE_ME' | translate}}</span></div>
+
+<div  dir="{{htmlDir}}" [ngClass]="langClass" >
+<p-dialog #inf header="{{'TRANSLATE.HEADER' | translate}}" [(visible)]="showbox" [width]="maxWidth" >
+  <div class='info'  [innerHTML]="'TRANSLATE.MSG' | translate" [ngStyle]="{'text-align': textDir}">
+    
+  </div>         
+<p-footer>
+<button type="button" pButton icon="fa-close" (click)="showbox=false" label="{{'UI.CLOSE' | translate}}"></button>
+</p-footer>
+</p-dialog>
+</div>

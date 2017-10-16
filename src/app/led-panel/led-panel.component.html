@@ -1,0 +1,10 @@
+<div class="ledTable" [ngStyle]="{'height': panelHeight}">
+  <div class="caption" [ngStyle]="{ 'display': showCaption }">{{caption}}</div>
+  <div *ngFor="let item of binaryValues;  let i = index">
+    <div [ngClass]="ledClass" [ngStyle]="{'margin-left': marginLeft, 'background-color': item}">
+      <span class="cw-text" [ngStyle]="{ 'display': showCW }"><br/>{{controlwords[i]}}</span></div>
+  </div>
+
+  <div *ngIf="binaryValues" class="screen" [ngStyle]="{ 'display': showScreen }">{{valueScreen}}
+  </div>
+</div>

@@ -1,0 +1,90 @@
+<p class="title">{{'COMP.RAM.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+<div class="box-panel">
+    <div class="box-panel-left">        
+            <p-radioButton name="bpoints" value="none" [(ngModel)]="selectedBpValue" (click)="breakpointSelected($event)" label="{{'COMP.RAM.NO_BREAKPOINT' | translate}}"></p-radioButton>
+    </div>
+    <div class="box-panel-right">
+            <button pButton type="button" (click)="onEditRAMclick()" label="{{'COMP.RAM.EDIT' | translate}}"></button> 
+        </div>
+</div>
+
+<!-- RAM contents -->
+<div class="ramTableWrapper">
+   <div class="ramBbox ramBboxAddr" style="-ms-grid-column:1"><b>{{'COMP.RAM.TABLE_ADDR' | translate}}</b></div>
+   <div class="ramBbox ramBboxHex" style="-ms-grid-column:2"><b>{{'COMP.RAM.TABLE_HEX' | translate}}</b></div>
+   <div class="ramBbox ramBboxBin" style="-ms-grid-column:3"><b>{{'COMP.RAM.TABLE_BIN' | translate}}</b></div>
+   <div class="ramBbox ramBboxCmd" style="-ms-grid-column:4"><b></b></div>
+   <div class="ramBbox ramBboxCmd" style="-ms-grid-column:5"><b>{{'COMP.RAM.TABLE_CMD' | translate}}</b></div>
+</div>
+<div *ngFor="let line of ramTable; let i = index; " class="ramTableWrapper">
+   <div class="ramBbox ramBboxAddr" style="-ms-grid-column:1">{{line[1]}}</div>
+   <div class="ramBbox ramBboxHex" style="-ms-grid-column:2">{{line[2]}}</div>
+   <!-- <div class="ramBbox ramBboxBin" [ngStyle]="{'background-color': curRamChangeIndicator[i]}">{{line[3]}}</div> -->
+   <div class="ramBbox ramBboxBin" style="-ms-grid-column:3"><input id="ramcell_{{i}}" type="text" pInputText (keydown)="onKeyDownEvent($event)" 
+                                    (change)="onRamChanged($event)" value="{{line[3]}}" [size]="7" 
+                                    [disabled]="editInputDisabled" [ngStyle]="{'background-color': curRamChangeIndicator[i]}"/></div>
+   <div class="ramBbox ramBboxHex" style="-ms-grid-column:4"><p-radioButton name="bpoints" value="{{i}}" [(ngModel)]="selectedBpValue" (click)="breakpointSelected($event)"></p-radioButton></div>
+   <!-- <div class="ramBbox ramBboxCmd" [ngStyle]="{'background-color': curCmdIndicator[i]}">{{line[0]}}</div>   -->
+   <div class="ramBbox ramBboxCmd" [ngStyle]="{'border': curCmdIndicator[i]}" style="-ms-grid-column:5">{{line[0]}}</div> 
+</div>
+
+<!-- Current command description -->
+<p class="title">{{'COMP.RAM.CUR_CMD' | translate}}</p>
+<div class="box-panel">
+    <div class="box-panel-left">        
+    </div>
+    <div class="box-panel-right">
+            <button pButton type="button" (click)="onMicroCmdsclick()" label="{{'COMP.RAM.MICROCMD' | translate}}"></button> 
+        </div>
+</div>
+<div class="ram-command">
+    <!-- <span class='curCmd'>{{currentCommandName}}</span><br/> -->
+    <span class='cmd-desc'>{{currentCommandDescription}}</span><br/>
+        <span *ngFor="let micro of microCommandsArray; let i = index" class='micro-cmd'>
+            <span [ngStyle]="{'border': stepArray[i]}">{{'COMP.RAM.STEP' | translate}} {{i}}:&nbsp;&nbsp;&nbsp;<b>{{microCommandsArray[i]}}</b></span><br/>
+        </span>
+</div>
+
+<!-- Info dialog -->
+<p-dialog #inf header="{{'COMP.RAM.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+        <div class='info' [innerHTML]="'COMP.RAM.INFO.DESC' | translate"></div>         
+    <p-footer>
+      <button type="button" pButton icon="fa-close" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+    </p-footer>
+</p-dialog>
+
+<!-- Edit RAM dialog -->
+<p-dialog #edt header="{{'COMP.RAM.EDITOR' | translate}}" [(visible)]="showEditor" [width]="400">
+    {{'PROGRAMS.TITLE' | translate}}: <p-dropdown [options]='cannedPrograms' [(ngModel)]="selectedProgram" [style]="{'width':'150px'}" (onChange)='programSelected($event)'></p-dropdown>    
+
+    <hr width="100%" height="3px">
+    <div><small>{{'COMP.RAM.EDITOR_TEXT' | translate}}</small></div>
+    <br/>
+    <div class='info' *ngFor="let i of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]">     
+        <span class='address'><b>{{hexValue[i]}}:</b></span>: <span class='hex'><input class="memValue" (keydown)=onKeyDownEvent($event) [(ngModel)]="editRamValues[i]" 
+            [size]="8"/></span>&nbsp;<br/>
+    </div>
+        
+    <p-footer>
+        <button type="button" pButton icon="fa-close" (click)="showEditor=false" label="{{'UI.CANCEL' | translate}}"></button>
+        <button type="button" pButton icon="fa-check" (click)="saveRam()" label="{{'UI.SAVE' | translate}}"></button>
+    </p-footer>
+</p-dialog>
+
+<!-- Micro Commands Table Dialog -->
+<p-dialog #mc header="{{'COMP.RAM.MICROCMD_HEADER' | translate}}" [(visible)]="showMicroCmds" [width]="600" height="300">
+    <div><small>{{'COMP.RAM.MICROCMD_TEXT' | translate}}</small></div>
+    <br/>
+    <div class='info'>     
+        <div class="mcTableWrapper" *ngFor="let mcValue of showMicroCmdsArray">
+            <div class="mcBbox">{{mcValue[0]}}</div>
+            <div class="mcBbox">{{mcValue[1]}}</div>
+            <div class="mcBbox" [innerHTML]="mcValue[2]"></div>
+            <div class="mcBbox" [innerHTML]="mcValue[3]"></div>
+        </div>
+    </div>
+        
+    <p-footer>
+        <button type="button" pButton icon="fa-close" (click)="showMicroCmds=false" label="{{'UI.CLOSE' | translate}}"></button>
+    </p-footer>
+</p-dialog>

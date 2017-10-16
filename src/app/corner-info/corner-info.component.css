@@ -1,0 +1,54 @@
+.corner-info {
+    width: 30px;
+    height: 22px;
+    position: absolute;
+    top: 15px;
+    right: 0px;
+    cursor: pointer;
+    border-radius: 20px 0px 0px 20px;
+    border: 1px solid #343d50;
+    background: #5F74A0 url("/assets/images/translate.png") no-repeat 8px 0px;
+}
+
+.corner-info:hover {    
+    /*transform: scaleX(4) translateX(-50%);*/
+    -webkit-transition: width 0.5s ease-in-out;
+    -moz-transition: width 0.5s ease-in-out;
+    -o-transition: width 0.5s ease-in-out;
+    transition: width 0.5s ease-in-out;
+    width:150px;
+}
+
+.corner-data {
+    visibility: collapse;
+    color: white;
+    margin-left: 25px;
+    font-size: 10pt;
+    font-weight: bold;
+}
+
+.corner-info:hover > .corner-data {
+    visibility: visible;
+}    
+
+/**************** MOBILE DEVICES ***************/
+@media screen 
+and (max-width: 320px), (max-width: 568px), (max-width: 360px)
+{
+    .corner-info {
+        zoom: 0.4;
+    }
+    .ui-dialog {
+        max-width: 300px;
+    }
+}
+@media screen 
+and (max-width: 667px), (max-width: 736px), (max-width: 640px)
+{
+    .corner-info {
+        zoom: 0.6;
+    }
+    .ui-dialog {
+        max-width: 400px;
+    }
+}

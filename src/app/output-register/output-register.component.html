@@ -1,0 +1,18 @@
+<p class="title">{{'COMP.OUT.TITLE' | translate}}<span class="help" (click)="showInfo=true">{{'UI.INFO' | translate}}</span></p>
+<div class="box-panel">
+    <div class="box-panel-left">
+        <app-control-led #oi type="OI" color="purple"></app-control-led>
+    </div>
+    <div class="box-panel-right">
+        <app-control-led #clk type="{{'UI.CLOCK' | translate}}" color="{{colorClkButton}}"></app-control-led>
+        <app-control-led #rst type="{{'UI.RESET' | translate}}" color="{{colorResetButton}}"></app-control-led>
+    </div>
+  </div>
+<app-led-panel #outpanel [leds]="leds8_output" caption="{{'COMP.OUT.PANEL_DESC' | translate}}" ></app-led-panel>
+
+<p-dialog #inf header="{{'COMP.OUT.INFO.HEADER' | translate}}" [(visible)]="showInfo" [width]="500">
+    <div class='info' [innerHTML]="'COMP.OUT.INFO.DESC' | translate"></div>
+    <p-footer>
+      <button type="button" pButton icon="fa-close" (click)="showInfo=false" label="{{'UI.CLOSE' | translate}}"></button>
+    </p-footer>
+  </p-dialog>

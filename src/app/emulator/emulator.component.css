@@ -1,0 +1,204 @@
+:host ::ng-deep .econtainer {
+    border: 1px solid gray;
+    display:flex;
+    justify-content:center;
+    background-color:white;
+    width:970px;
+    margin: 0 auto;    
+    font-size: 11pt;    
+    zoom: 1;
+}
+
+.emulator {
+    width:100%;
+    text-align:center;
+    flex: 3;
+}
+
+.ebox {
+    width:100%;
+    height: auto;
+    border: 1px solid #D9D9D9;
+    background-color: white;
+    font-size: 11pt;
+    min-height: 20px;
+    position: relative;
+}
+
+/* Components */
+
+
+.ui-button-panel {
+    height: 20px;
+    padding-left: 2px;
+    padding-right: 2px;
+    font-size: 8pt;
+}
+
+
+.cp-led-container {
+    float:left;
+    padding:5px;
+    display: flex;
+    width:100%;
+}
+
+.v-spacer {
+    height: 10px;
+    width: 100%;
+}
+
+.bus {
+    background-color:white;
+    height:auto;
+    width:100px;
+}
+
+.grad1 {
+    background: gray; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(left,  #ADAAAA, #E0E0E0); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(right,  #ADAAAA, #E0E0E0); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(right,  #ADAAAA, #E0E0E0); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to right,  #ADAAAA, #E0E0E0); /* Standard syntax */    
+}
+
+.busTable {
+    border: none;
+    border-collapse: collapse;
+    height: 94%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.busTable td {
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    width: 50px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.padRight {
+    padding-right: 15px;
+}
+
+/*************** Arrows *****************/
+
+.arrow {
+    display : inline-block;
+    font-size: 10px; /* adjust size */
+    line-height: 1em; /* adjust vertical positioning */
+    border: 5px solid #000000;
+    border-left: transparent;
+    border-bottom: transparent;
+    width: 1em; /* use font-size to change overall size */
+    height: 1em; /* use font-size to change overall size */
+  }
+  
+  .arrow:before {
+    content: "\00a0"; /* needed to hook line-height to "something" */
+  }
+  
+  .arrow.left {
+    margin-left: 0.5em;
+    -webkit-transform: rotate(225deg);
+    -moz-transform: rotate(225deg);
+    -o-transform: rotate(225deg);
+    -ms-transform: rotate(225deg);
+    transform: rotate(225deg);
+  }
+  
+  .arrow.right {
+    margin-right: 0.5em;
+    -webkit-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg);
+  }
+  
+  .arrow.top {
+    line-height: 0.5em; /* use this to adjust vertical positioning */
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    -webkit-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    transform: rotate(-45deg);
+  }
+  
+  .arrow.bottom {
+    line-height: 2em;
+    /* use this to adjust vertical positioning */
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+    -webkit-transform: rotate(135deg);
+    -moz-transform: rotate(135deg);
+    -o-transform: rotate(135deg);
+    -ms-transform: rotate(135deg);
+    transform: rotate(135deg);
+  }
+
+  .ram_contents {
+    width:100%;
+    height: auto;
+    border: 1px solid #D9D9D9;
+    background-color: white;
+    font-size: 11pt;
+    min-height: 20px;
+    text-align: center;
+    margin-top: 0px;
+    text-align: left;
+    margin-left: 10px;
+  }
+
+  /********* ********/
+
+  :host ::ng-deep .info {
+      text-align: left;
+  }
+
+  /********** BORDER **********/
+  .ps-top-to-bottom {
+    position: relative;
+    border-top: 3px solid black;
+  }
+  .ps-top-to-bottom:before, .ps-top-to-bottom:after {
+    content: "";
+    position: absolute;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#000), to(transparent));
+    background-image: -webkit-linear-gradient(#000, transparent);
+    background-image: -moz-linear-gradient(#000, transparent);
+    background-image: -o-linear-gradient(#000, transparent);
+    background-image: linear-gradient(#000, transparent);
+    top: -3px;
+    bottom: -3px;
+    width: 3px;
+  }
+  .ps-top-to-bottom:before {
+    left: -3px;
+  }
+  .ps-top-to-bottom:after {
+    right: -3px;
+  }
+ .en {
+    direction: ltr;
+    text-align: left;
+}
+
+/**************** MOBILE DEVICES ***************/
+@media screen 
+and (max-width: 320px), (max-width: 568px), (max-width: 360px)
+{
+    :host ::ng-deep .econtainer {
+        zoom: 0.3;
+    }
+}
+@media screen 
+and (max-width: 667px), (max-width: 736px), (max-width: 640px)
+{
+    :host ::ng-deep .econtainer {
+        zoom: 0.4;
+    }
+}
