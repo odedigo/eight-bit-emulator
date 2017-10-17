@@ -15,16 +15,6 @@ protractor.conf.js
 # dependencies
 node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
-.editor-config
-
 # IDE - VSCode
 .vscode/*
 !.vscode/settings.json
